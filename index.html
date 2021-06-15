@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="../Weather-Dashboard/assets/css/style.css">
+        <title>Weather Dashboard</title>
+    </head>
+    <body>
+     <header> <!-- The Header of the Webpage--> 
+         <div class="container bg-primary bg-gradient">
+            <h1 class="text-white text-center"> Weather Dashboard</h1>
+         </div>
+     </header>   
+     <main>
+        <!-- Creating two grids. One of which will be run 4 columns and the other will run 8 coloumns.-->
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <!-- Search box for the city-->
+                    <h4>Search for a City:</h4>
+                    <div class="input-group mb-3"> <!-- Input field for the text-box -->
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                </div>
+                <div class="col-9  border border-1 border-dark">
+                    <h4>City Name</h4><!-- Will display the searched city name here-->
+                    <!-- List the Temp, Wind, Humidity and UV Index of the selected city.-->
+                   
+                </div>
+            </div>
+
+        </div>
+     </main>
+
+
+    </body>
+</html>
