@@ -27,25 +27,61 @@
                 </div>
                 <div class="col-9  border border-1 border-dark">
                     <h4 class="cityName"></h4><!-- Will display the searched city name here-->
-                    <p class="temp"></p>
-                    <p class="wind"></p>
-                    <p class="humidity"></p>
-                    <p class="uv"></p>
+                    <ul>
+                        <li>Temperature: <span class="temp"></span>°C</li>
+                        <li>Wind: <span class="wind"></span>kmh</li>
+                        <li>Humidity: <span class="humidity"></span>%</li>
+                        <li>UV Index: <span class="uv"></span></li>
+                    </ul>
+                   
                 </div>
             </div>
+            <div class="row p-2">
+                <div class="col-2 history"></div>
+                <div class="col-8"><h6 class="five">5 Day Weather Forecast</h6></div>
+            </div>
             <div class="row">
-                <div class="col-3 history">
-                    <!-- The Search History Will Go Here-->
+                <div class="col-3"> <!-- The Search History Will Go Here-->
                     <ul id="mySearchHistory">
-                        <li>
-    
-                        </li>
+                        <li></li>
                     </ul>
                 </div>
 
                 <!-- The Cards for the 5 day forecast-->
-                <div class="col-9">
-                    <h6 class="p-2">5-Day Forecast:</h6>
+                <div class="col-2 card" style="width:9rem">
+                    <li>Temperature: <span class="temp2"></span>°C</li>
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <li class="card-text">Temperature: <span class="temp2"></span>°C</li>
+                        </div>
+                </div>
+                <div class="col-2 card" style="width:9rem">
+                    <li>Temperature: <span class="temp"></span>°C</li>
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <li class="card-text">Temperature: <span class="temp"></span>°C</li>
+                        </div>
+                </div>
+                <div class="col-2 card" style="width:9rem">
+                    <li>Temperature: <span class="temp"></span>°C</li>
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <li class="card-text">Temperature: <span class="temp"></span>°C</li>
+                        </div>
+                </div>
+                <div class="col-2 card" style="width:9rem">
+                    <li>Temperature: <span class="temp"></span>°C</li>
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <li class="card-text">Temperature: <span class="temp"></span>°C</li>
+                        </div>
+                </div>
+                <div class="col-2 card" style="width:9rem">
+                    <li>Temperature: <span class="temp"></span>°C</li>
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <li class="card-text">Temperature: <span class="temp"></span>°C</li>
+                        </div>
                 </div>
             </div>
 

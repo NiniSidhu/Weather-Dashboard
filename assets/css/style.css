@@ -19,6 +19,20 @@
 }
 
 .history{
-    margin-top: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
     border-top: 1px solid black;
+}
+
+.card{
+    background-color: #2d3e50;
+    color: white;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 20px;
+    list-style: none;
+}
+
+.five{
+    padding-left: 20px;
 }
