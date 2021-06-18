@@ -30,22 +30,34 @@ var mySearchHistory = document.querySelector('.mySearchHistory');
 var citySearch = [];
 
 
-var oldList = function(){
-  var x = localStorage.getItem("history")
-  console.log(JSON.parse(x))
+// var oldList = function(){
+//   var x = localStorage.getItem("history")
+//   console.log(JSON.parse(x))
 
-  // var x = JSON.parse(JSON.stringify(localStorage.getItem("history"))); 
-  // console.log(typeof x);
-  /*
-  for (var i=0; i<x.length; i++){
-    var z = document.createElement('li'); // is a node
-    z.innerHTML = x;
-    mySearchHistory.appendChild(z);
-  };*/
+//   var x = JSON.parse(JSON.stringify(localStorage.getItem("history"))); 
+//   console.log(typeof x);
   
-};
+//   for (var i=0; i<x.length; i++){
+//     var z = document.createElement('li'); // is a node
+//     z.innerHTML = x;
+//     mySearchHistory.appendChild(z);
+//   };
+  
+// };
 
-// oldList();
+//  oldList();
+
+var oldList = function(){
+  var x = JSON.parse(localStorage.getItem("history"));
+  console.log(x);
+   for (var i=0; i< x.length; i++){
+     var createLi = document.createElement('li');
+     createLi.innerHTML = x;
+     mySearchHistory.appendChild(createLi);
+   }
+}
+
+oldList();
 
 button.addEventListener('click', function(){
   var today = new Date();
@@ -55,7 +67,7 @@ button.addEventListener('click', function(){
   fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=2fad36d0135aa7aa52c86dec12de0e72')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        //console.log(data);
         var cityNameValue = data['name'];
         var tempValue = data['main']['temp'];
         var windValue = data['wind']['speed'];
@@ -72,8 +84,8 @@ button.addEventListener('click', function(){
     });
   
   citySearch.push(inputValue.value);
-localStorage.setItem("history", JSON.stringify(citySearch));
-
+  localStorage.setItem("history", JSON.stringify(citySearch));
+  
     
 });
 
