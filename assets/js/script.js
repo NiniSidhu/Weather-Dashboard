@@ -20,29 +20,61 @@ var humidity3 = document.querySelector('.humidity3');
 var humidity4 = document.querySelector('.humidity4');
 var humidity5 = document.querySelector('.humidity5');
 var humidity6 = document.querySelector('.humidity6');
+var date1 = document.querySelector('.date1');
 var date2 = document.querySelector('.date2');
 var date3 = document.querySelector('.date3');
 var date4 = document.querySelector('.date4');
 var date5 = document.querySelector('.date5');
 var date6 = document.querySelector('.date6');
+var mySearchHistory = document.querySelector('.mySearchHistory');
+var citySearch = [];
+
+
+var oldList = function(){
+  var x = localStorage.getItem("history")
+  console.log(JSON.parse(x))
+
+  // var x = JSON.parse(JSON.stringify(localStorage.getItem("history"))); 
+  // console.log(typeof x);
+  /*
+  for (var i=0; i<x.length; i++){
+    var z = document.createElement('li'); // is a node
+    z.innerHTML = x;
+    mySearchHistory.appendChild(z);
+  };*/
+  
+};
+
+// oldList();
 
 button.addEventListener('click', function(){
+  var today = new Date();
+  var dateValue1 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();  
+  date1.innerHTML = dateValue1;
+
   fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=2fad36d0135aa7aa52c86dec12de0e72')
     .then(response => response.json())
     .then(data => {
-        //console.log(data);
+        console.log(data);
         var cityNameValue = data['name'];
         var tempValue = data['main']['temp'];
         var windValue = data['wind']['speed'];
         var humidityValue = data['main']['humidity'];
 
         
+        
+        date1.innerHTML = dateValue1;
         cityName.innerHTML = cityNameValue;
         temp.innerHTML = tempValue;
         wind.innerHTML = windValue;
         humidity.innerHTML = humidityValue; 
     
     });
+  
+  citySearch.push(inputValue.value);
+localStorage.setItem("history", JSON.stringify(citySearch));
+
+    
 });
 
 button.addEventListener('click', function(){
@@ -50,7 +82,7 @@ button.addEventListener('click', function(){
     .then(response => response.json())
     .then(data => {
       
-      console.log(data);
+      //console.log(data);
       var dateValue2 = data['list']['2']['dt_txt'];
       var tempValue2 = data['list']['2']['main']['temp'];
       var windValue2 = data['list']['2']['wind']['speed'];
