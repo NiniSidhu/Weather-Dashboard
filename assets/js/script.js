@@ -50,10 +50,12 @@ var citySearch = [];
 var oldList = function(){
   var x = JSON.parse(localStorage.getItem("history"));
   console.log(x);
-   for (var i=0; i< x.length; i++){
-     var createLi = document.createElement('li');
-     createLi.innerHTML = x;
-     mySearchHistory.appendChild(createLi);
+   if(x.length>0){
+    for (var i=0; i< x.length; i++){
+       var createLi = document.createElement('li');
+       createLi.innerHTML = x;
+       mySearchHistory.appendChild(createLi);
+    }
    }
 }
 
