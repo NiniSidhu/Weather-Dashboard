@@ -50,14 +50,15 @@ var citySearch = [];
 var oldList = function(){
   var x = JSON.parse(localStorage.getItem("history"));
   console.log(x);
-  if(x.length>0){ 
-    for (var i=0; i< x.length; i++){
-      var createLi = document.createElement('li');
-      createLi.innerHTML = x;
-      mySearchHistory.appendChild(createLi);
-    }
-  }
-}
+  
+  if(x===true){
+    x.forEach((profileItem) => {
+      profileItem = document.createElement('li');
+      mySearchHistory.innerHTML = x;
+      mySearchHistory.appendChild(profileItem);
+    });
+  } 
+};
 
 oldList();
 
