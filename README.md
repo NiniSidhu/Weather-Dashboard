@@ -1,6 +1,6 @@
 # Weather-Dashboard
 ## Author: Nayandeep Sidhu
-## GitHub Deployment Link: 
+## GitHub Deployment Link: https://ninisidhu.github.io/Weather-Dashboard/
 
 1) The user is greeted by the image below when they initiate the application 
 ![image](https://user-images.githubusercontent.com/79432326/122516029-3e4e3680-cfdc-11eb-80e7-0aa477db931d.png)
