@@ -36,3 +36,14 @@
 .five{
     padding-left: 20px;
 }
+
+.btn{
+    width: 200px;
+    margin: 5px;
+}
+
+#myImage{
+    position: absolute;
+    top: 30px;
+    left: 470px;
+}

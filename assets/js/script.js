@@ -5,6 +5,7 @@ var temp = document.querySelector('.temp');
 var wind = document.querySelector('.wind');
 var humidity = document.querySelector('.humidity');
 var uv = document.querySelector('.uv');
+var img = document.getElementById('myImage');
 var temp2 = document.querySelector('.temp2');
 var temp3 = document.querySelector('.temp3');
 var temp4 = document.querySelector('.temp4');
@@ -49,23 +50,33 @@ var citySearch = [];
 
 var oldList = function(){
   var x = JSON.parse(localStorage.getItem("history"));
-  console.log(x);
+  console.log("I'm x" + x);
   
-  if(x===true){
+  if(x){
+  
     x.forEach((profileItem) => {
-      profileItem = document.createElement('li');
-      mySearchHistory.innerHTML = x;
-      mySearchHistory.appendChild(profileItem);
+      let liEl = document.createElement('li'); //liEl is a new <li> tag
+      liEl.className = 'btn btn-secondary';
+      //give it a unique class name
+      //figure out how to target the value of the button (ie this.value or something)
+      //give event listener its own function
+      //call function a second time when it takes the argument of the list-btn content
+
+      liEl.innerHTML = profileItem; //each time there's a new <li> tag, the html content will be the element of the array profileItem
+      // mySearchHistory.innerHTML = x; //the html content of the <ul> = the array of x
+      mySearchHistory.appendChild(liEl); //we will append that conent to the <ul> tag, named mySH
     });
   } 
 };
 
-oldList();
+//oldList();
 
 button.addEventListener('click', function(){
   var today = new Date();
   var dateValue1 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();  
   date1.innerHTML = dateValue1;
+
+  
 
   fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=2fad36d0135aa7aa52c86dec12de0e72')
     .then(response => response.json())
@@ -75,21 +86,25 @@ button.addEventListener('click', function(){
         var tempValue = data['main']['temp'];
         var windValue = data['wind']['speed'];
         var humidityValue = data['main']['humidity'];
+        var iconCode = data['weather']['0']['icon'];
+        //var iconUrl = "http://openweathermap.org/img/wn/"+iconCode+"@2x.png";
+        //console.log(iconUrl);
 
-        
-        
+        img.src = "http://openweathermap.org/img/wn/"+iconCode+"@2x.png";
+
         date1.innerHTML = dateValue1;
         cityName.innerHTML = cityNameValue;
         temp.innerHTML = tempValue;
         wind.innerHTML = windValue;
-        humidity.innerHTML = humidityValue; 
+        humidity.innerHTML = humidityValue;
+        
     
     });
   
   citySearch.push(inputValue.value);
   localStorage.setItem("history", JSON.stringify(citySearch));
   
-    
+  oldList();
 });
 
 button.addEventListener('click', function(){
@@ -97,31 +112,44 @@ button.addEventListener('click', function(){
     .then(response => response.json())
     .then(data => {
       
-      //console.log(data);
-      var dateValue2 = data['list']['2']['dt_txt'];
+      console.log(data);
+      //var dateValue2 = data['list']['2']['dt_txt'];
       var tempValue2 = data['list']['2']['main']['temp'];
       var windValue2 = data['list']['2']['wind']['speed'];
       var humidityValue2 = data['list']['2']['main']['humidity'];
 
-      var dateValue3 = data['list']['10']['dt_txt'];
+      //var dateValue3 = data['list']['10']['dt_txt'];
       var tempValue3 = data['list']['10']['main']['temp'];
       var windValue3 = data['list']['10']['wind']['speed'];
       var humidityValue3 = data['list']['10']['main']['humidity'];
 
-      var dateValue4 = data['list']['18']['dt_txt'];
+      //var dateValue4 = data['list']['18']['dt_txt'];
       var tempValue4 = data['list']['18']['main']['temp'];
       var windValue4 = data['list']['18']['wind']['speed'];
       var humidityValue4 = data['list']['18']['main']['humidity'];
 
-      var dateValue5 = data['list']['26']['dt_txt'];
+      //var dateValue5 = data['list']['26']['dt_txt'];
       var tempValue5 = data['list']['26']['main']['temp'];
       var windValue5 = data['list']['26']['wind']['speed'];
       var humidityValue5 = data['list']['26']['main']['humidity'];
 
-      var dateValue6 = data['list']['34']['dt_txt'];
+      //var dateValue6 = data['list']['34']['dt_txt'];
       var tempValue6 = data['list']['34']['main']['temp'];
       var windValue6 = data['list']['34']['wind']['speed'];
       var humidityValue6 = data['list']['34']['main']['humidity'];
+      
+      var today = new Date();
+      var tomorrow = today.getDate()+1;
+      var tomorrow2 = today.getDate()+2;
+      var tomorrow3 = today.getDate()+3;
+      var tomorrow4 = today.getDate()+4;
+      var tomorrow5 = today.getDate()+5;
+      var dateValue2 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+tomorrow;
+      var dateValue3 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+tomorrow2;
+      var dateValue4 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+tomorrow3;
+      var dateValue5 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+tomorrow4;
+      var dateValue6 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+tomorrow5; 
+      //console.log(dateValue2); 
 
       date2.innerHTML = dateValue2;
       temp2.innerHTML = tempValue2;
@@ -150,4 +178,5 @@ button.addEventListener('click', function(){
     
     });
  
+    //oldList();
 });
