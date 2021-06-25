@@ -47,3 +47,8 @@
     top: 30px;
     left: 470px;
 }
+
+#myImage2, #myImage3, #myImage4, #myImage5, #myImage6 {
+    width:80px;
+    height: 80px;
+}

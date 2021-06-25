@@ -5,7 +5,16 @@ var temp = document.querySelector('.temp');
 var wind = document.querySelector('.wind');
 var humidity = document.querySelector('.humidity');
 var uv = document.querySelector('.uv');
+
+var historyValue = document.querySelector('.historyValue');
+
 var img = document.getElementById('myImage');
+var img2 = document.getElementById('myImage2');
+var img3 = document.getElementById('myImage3');
+var img4 = document.getElementById('myImage4');
+var img5 = document.getElementById('myImage5');
+var img6 = document.getElementById('myImage6');
+
 var temp2 = document.querySelector('.temp2');
 var temp3 = document.querySelector('.temp3');
 var temp4 = document.querySelector('.temp4');
@@ -56,7 +65,8 @@ var oldList = function(){
   
     x.forEach((profileItem) => {
       let liEl = document.createElement('li'); //liEl is a new <li> tag
-      liEl.className = 'btn btn-secondary';
+      liEl.className = 'historyValue btn btn-secondary';
+      //liEl.className = 'btn btn-secondary';
       //give it a unique class name
       //figure out how to target the value of the button (ie this.value or something)
       //give event listener its own function
@@ -66,10 +76,13 @@ var oldList = function(){
       // mySearchHistory.innerHTML = x; //the html content of the <ul> = the array of x
       mySearchHistory.appendChild(liEl); //we will append that conent to the <ul> tag, named mySH
     });
+    
   } 
 };
 
 //oldList();
+
+
 
 button.addEventListener('click', function(){
   var today = new Date();
@@ -117,26 +130,36 @@ button.addEventListener('click', function(){
       var tempValue2 = data['list']['2']['main']['temp'];
       var windValue2 = data['list']['2']['wind']['speed'];
       var humidityValue2 = data['list']['2']['main']['humidity'];
+      var iconCode2 = data['list']['2']['weather']['0']['icon'];
+      img2.src = "http://openweathermap.org/img/wn/"+iconCode2+"@2x.png";
 
       //var dateValue3 = data['list']['10']['dt_txt'];
       var tempValue3 = data['list']['10']['main']['temp'];
       var windValue3 = data['list']['10']['wind']['speed'];
       var humidityValue3 = data['list']['10']['main']['humidity'];
+      var iconCode3 = data['list']['10']['weather']['0']['icon'];
+      img3.src = "http://openweathermap.org/img/wn/"+iconCode3+"@2x.png";
 
       //var dateValue4 = data['list']['18']['dt_txt'];
       var tempValue4 = data['list']['18']['main']['temp'];
       var windValue4 = data['list']['18']['wind']['speed'];
       var humidityValue4 = data['list']['18']['main']['humidity'];
+      var iconCode4 = data['list']['18']['weather']['0']['icon'];
+      img4.src = "http://openweathermap.org/img/wn/"+iconCode4+"@2x.png";
 
       //var dateValue5 = data['list']['26']['dt_txt'];
       var tempValue5 = data['list']['26']['main']['temp'];
       var windValue5 = data['list']['26']['wind']['speed'];
       var humidityValue5 = data['list']['26']['main']['humidity'];
+      var iconCode5 = data['list']['26']['weather']['0']['icon'];
+      img5.src = "http://openweathermap.org/img/wn/"+iconCode5+"@2x.png";
 
       //var dateValue6 = data['list']['34']['dt_txt'];
       var tempValue6 = data['list']['34']['main']['temp'];
       var windValue6 = data['list']['34']['wind']['speed'];
       var humidityValue6 = data['list']['34']['main']['humidity'];
+      var iconCode6 = data['list']['34']['weather']['0']['icon'];
+      img6.src = "http://openweathermap.org/img/wn/"+iconCode6+"@2x.png";
       
       var today = new Date();
       var tomorrow = today.getDate()+1;
